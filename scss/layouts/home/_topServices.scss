@@ -1,0 +1,45 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+
+    .textTop{
+        @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,left );
+        width: 50%;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        @include mixin.mediumDevice{
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+    .services{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+        margin-bottom: 2.5rem;
+        @include mixin.mediumDevice{
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        @include mixin.littleDevice{
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+        
+        &__service{
+            box-shadow: 4px 4px 30px rgba(0,0,0,.2);
+            border-radius: 8px;
+            padding: 3rem 1rem
+        }
+        &__title{
+            @include mixin.text(1.2rem, var.$colorDark, var.$fontPrimary ,center );
+            margin-bottom: 1.5rem;
+        }
+        &__text{
+            @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,center );
+            line-height: 1.6;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+    .customersContainer{
+        margin-bottom: 2.5rem;
+        padding: 3rem 0;
+        &__title{
+            @include mixin.text(3rem, var.$colorDark, var.$fontPrimary ,center );
+            margin-bottom: 2.5rem;
+            span{
+                color: var.$colorPrimary;
+            }
+        }
+        .customers{
+            &__content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%!important;
+                margin-right: 2rem;
+            }
+            &__text{
+                @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,center );
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+                width: 65%;
+                &::before{
+                    font-family: "Font Awesome 6 Free";
+                    content: "\f10d";
+                    font-size: 2rem;
+                    color: var.$colorPrimary;
+                    font-weight: bold;
+                }    
+            }
+            &__image{
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                object-position: top;
+                border-radius:50%;
+            }
+        }
+    }
+}

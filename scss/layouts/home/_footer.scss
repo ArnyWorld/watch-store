@@ -1,0 +1,64 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+    .footer{
+        background-color: var.$colorDark;
+        .footerContainer{
+            padding: 4rem 0;
+            display: grid;
+            gap: 2rem;
+            place-items: center;
+            grid-template-columns: 2fr 1fr 2fr;
+            @include mixin.mediumDevice{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include mixin.littleDevice{
+                grid-template-columns: repeat(1, 1fr);
+            }
+           
+            &__title{
+                @include mixin.text(1.5rem, var.$colorWhite, var.$fontPrimary ,left);
+                margin-bottom: 2.5rem;
+                span{
+                    color: var.$colorPrimary;
+                }
+            }
+            &__text{
+                @include mixin.text(1rem, var.$colorLight, var.$fontSecondary ,left);
+                margin-bottom: 2.5rem;
+                line-height: 2;
+                @include mixin.littleDevice{
+                    text-align: justify;
+                }
+            }
+            &__networks{
+                display: flex;
+                justify-content: space-between;
+            }
+            &__network{
+                color: var.$colorWhite;
+                font-size: 1.4rem;
+            }
+            &__links{
+                display: flex;
+                flex-direction: column;
+                
+            }
+            &__link{
+                margin-bottom: 1rem;
+                @include mixin.text(1rem, var.$colorLight, var.$fontSecondary ,center);
+            }
+            &__image{
+                width: 250px;
+                @include mixin.mediumDevice{
+                    display: none;
+                }
+            }
+        }
+        &__copy{
+            padding: 1rem 0;
+            text-align: center;
+            background-color: var.$colorBlack;
+            @include mixin.text(1rem, var.$colorLight, var.$fontSecondary ,center);
+        }
+    }

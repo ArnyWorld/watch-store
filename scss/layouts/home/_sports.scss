@@ -1,0 +1,73 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+
+    .sportsContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+        align-items: center;
+        @include mixin.littleDevice{
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__image{
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            @include mixin.littleDevice{
+             display: none;
+            }   
+        }
+        &__content{
+            padding: 4rem;                
+            @include mixin.mediumDevice{
+                padding: 2rem;                
+
+            }
+            @include mixin.littleDevice{
+                background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(../img/parallaxSport-min.jpg);
+                background-position: center;
+                background-size: cover;        
+            }
+        }
+        &__title{
+            @include mixin.text(3rem, var.$colorDark, var.$fontPrimary ,left );
+            margin-bottom: 2rem;
+            span{
+                color: var.$colorPrimary;
+            }
+            @include mixin.littleDevice{
+                color: var.$colorWhite;
+            }
+        }
+        &__text{
+            @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,left );
+            line-height: 2;
+            margin-bottom: 2rem;
+            @include mixin.littleDevice{
+                color: var.$colorWhite;
+                text-align: justify;
+            }
+        }
+        &__icons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        &__icon{
+            margin-bottom: 2rem;
+            width: 75px;
+            height: 75px;
+            border: 2px solid var.$colorPrimary;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                color: var.$colorPrimary;
+                font-size: 2.2rem;
+            }
+        }
+    }
+
+}

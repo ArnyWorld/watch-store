@@ -1,0 +1,92 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+ .productsContainer{
+    background-color: var.$colorLight;
+    padding: 4rem 0 5rem 0;
+    margin-bottom: 2.5rem;
+    &__title{
+        @include mixin.text(3rem, var.$colorDark, var.$fontPrimary ,center );
+        margin-bottom: 2.5rem;
+        span{
+            color: var.$colorPrimary;
+        }
+    }
+    .products{
+        &__product{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 23%!important;
+            margin-right: 2rem;
+            background-color: var.$colorWhite;
+            padding: 1.5rem 1rem 9rem 1rem;
+            position: relative;
+            @include mixin.mediumDevice{
+                width: 45%!important;
+            }
+            @include mixin.littleDevice{
+                width: 100%!important;
+            }
+            a{
+                display: inline-block;
+                width: 100%;
+            }    
+        }
+        &__image{
+            width: 100%;
+        }
+        &__details{
+            position: absolute;
+            bottom: 1rem;
+            width: 80%;
+        }
+        &__title{
+            @include mixin.text(1.2rem, var.$colorDark, var.$fontPrimary ,center );
+            margin-bottom: 2rem;
+        }
+        &__content{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        &__priceBefore{
+            text-decoration: line-through;
+            @include mixin.text(1rem, var.$colorPrimary, var.$fontSecondary ,left);
+        }
+        &__priceCurrent{
+            @include mixin.text(1rem, var.$colorDark, var.$fontSecondary ,right);
+        }
+        &__button{
+            @include mixin.button(var.$colorPrimary, var.$colorWhite);
+            @include mixin.mediumDevice{
+                width: 100%;
+                i{
+                    margin-right: 1.2rem;
+                }
+            }       
+            @include mixin.littleDevice{                
+                i{
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+    }
+}
+.splide__pagination__page.is-active {
+    background-color: var.$colorPrimary;
+}
+.splide__pagination {
+    bottom: -1.5rem;
+}
+.splide__arrow{
+    background-color: var.$colorPrimary;
+    opacity: .6;
+
+    svg{
+        fill: var.$colorWhite;
+    }
+}
+}

@@ -1,0 +1,74 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+
+    .featuresContainer{
+        background-color: var.$colorLight;
+        padding: 3rem 0;
+        .features{
+            &__title{
+                @include mixin.text(3rem, var.$colorDark, var.$fontPrimary ,center );
+                margin-bottom: 2rem;
+                
+                span{
+                    color: var.$colorPrimary;
+                }
+            }
+            &__text{
+                @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,center );
+                line-height: 2;
+                width: 75%;
+                margin: 0 auto;
+                margin-bottom: 2.5rem;
+                @include mixin.littleDevice{
+                    width: 100%;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+
+    .featuresGrid{
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr ;
+        gap: 2rem;
+        align-items: center;
+        @include mixin.mediumDevice{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include mixin.littleDevice{
+            grid-template-columns: 1fr;
+        }
+        &__content{
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            @include mixin.mediumDevice{
+                flex-direction: column;
+            }
+            i{
+                margin-right: 1rem;
+                color: var.$colorPrimary;
+                font-size: 3rem;
+                @include mixin.mediumDevice{
+                    margin-bottom: 1.5rem;
+                }
+                @include mixin.littleDevice{
+                    margin-bottom: 1rem;;
+                }
+            }
+        }
+        &__text{
+            @include mixin.text(1rem, var.$colorText, var.$fontSecondary ,left );
+            line-height: 1.6;
+        }
+        &__image{
+            width: 100%;
+            @include mixin.mediumDevice{
+                display: none;
+            }
+        }
+    }
+
+}

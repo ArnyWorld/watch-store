@@ -1,0 +1,37 @@
+@use 'variables' as var;
+
+@mixin background($backgroundImage, $height){
+    height: $height;
+    background-color: var.$colorDark;
+    background-image: $backgroundImage;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin text($size, $color, $font ,$align:center ) {
+    font-size: $size;
+    color: $color;
+    font-family: $font;
+    text-align: $align;
+}
+
+@mixin button($background, $color){
+    background-color: $background;
+    color: $color;
+    border-radius:5px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.6rem 2rem;
+}
+
+@mixin mediumDevice{
+    @media(max-width:var.$mediumSize){
+        @content;
+    }
+}
+@mixin littleDevice{
+    @media(max-width:var.$littleSize){
+        @content;
+    }
+}
